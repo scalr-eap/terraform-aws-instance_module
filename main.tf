@@ -2,7 +2,7 @@ resource "aws_instance" "scalr" {
   ami                    = var.ami
   instance_type          = var.instance_type
   subnet_id              = var.subnet
-  vpc_security_group_ids = var.sg
+  vpc_security_group_ids = var.secgroup
   key_name               = var.key
   count                  = var.instance_count
 }
@@ -24,7 +24,7 @@ variable "subnet" {
   description = "Subnet ID"
 }
 
-variable "sg" {
+variable "secgroup" {
   description = "AWS Secruity Group"
   type        = list(string)
 }
